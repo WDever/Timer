@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="Chrome">
+  <title>Timer Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../CSS/index.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.2/rxjs.umd.min.js"></script>
+</head>
+
+<body>
+  <div id="SettingForm">
+    <div id="timeSet">
+      <div id="SetForm">
+        <div id="setForm_in">
+          <input type="number" placeholder="시" id="hour" class="times" value="0" /> :
+          <input type="number" placeholder="분" id="min" class="times" value="0" /> :
+          <input type="number" placeholder="초" id="sec" class="times" value="0" />
+        </div>
+      </div>
+      <div id="timer">
+        0 : 0 : 0
+      </div>
+      <div id="infoDiv">
+        <div class="info">
+          hours
+        </div>
+        <div class="info">
+          minutes
+        </div>
+        <div class="info">
+          seconds
+        </div>
+      </div>
+    <div id="FormBtn">
+      <button type="submit" id="SetFormBtn" class="btns">
+        Start
+      </button>
+      <div id="secondBtn">
+        <button type="submit" id="Save" class="btns">
+          Pause
+        </button>
+        <button type="submit" id="rePlay" class="btns">
+          Replay
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <footer>
+    <div class="license">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+  </footer>
+  <script src="../JS/Timer.js"></script>
+</body>
+
+</html>

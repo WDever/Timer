@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'DS-digital';
+  src: url(../FONT/DS-DIGII.TTF) format('truetype');
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-size: 100% 100%; 
+}
+
+b {
+  margin: 10px;
+}
+
+#SettingForm {
+  height: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#timeSet {
+  color: white;
+  background-color: #CF344A;
+  padding: 13%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btns {
+  border: 0;
+  background: #CF344A;
+  border: 1px solid white;
+  color: white;
+}
+
+.times {
+  font-family: 'DS-digital';
+  color: white;
+  font-size: 90%;
+  width: 13%;
+  background: #CF344A;
+  border: none;
+  margin: 5px;
+}
+
+.license {
+  font-size: 5px;
+}
+
+#SetForm {
+  font-family: 'DS-digital';
+  font-size: 90pt;
+  display: flex;
+  justify-content: center;
+}
+
+#FormBtn {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+#timer {
+  width: 96.63%;
+  display: none;
+  justify-content: center;
+  font-size: 90pt;
+  font-family: 'DS-digital';
+}
+
+#setForm_in {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.logoDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#sponsor {
+  margin: 30px;
+}
+
+#secondBtn {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  justify-content: center;
+  /* margin: 15px; */
+}
+
+#rePlay {
+  display: none;
+}
+
+#infoDiv {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 58%;
+  /* width: 70%; */
+}
