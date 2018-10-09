@@ -22,8 +22,8 @@ b {
 }
 
 #timeSet {
-  color: white;
-  background-color: #CF344A;
+  color: black;
+  background-color: white;
   padding: 13%;
   width: 40%;
   display: flex;
@@ -33,17 +33,17 @@ b {
 
 .btns {
   border: 0;
-  background: #CF344A;
-  border: 1px solid white;
-  color: white;
+  background: white;
+  border: 1px solid black;
+  color: black;
 }
 
 .times {
   font-family: 'DS-digital';
-  color: white;
+  color: black;
   font-size: 90%;
   width: 13%;
-  background: #CF344A;
+  background: white;
   border: none;
   margin: 5px;
 }
@@ -76,6 +76,7 @@ b {
 #setForm_in {
   display: flex;
   justify-content: center;
+  border: 1px solid black;
 }
 
 .logo {
