@@ -6,6 +6,7 @@
     "classnames": "^2.2.6",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -28,7 +29,9 @@
       "react/jsx-filename-extension": 0,
       "react/jsx-one-expression-per-line": 0,
       "react/no-unused-state": 1,
-      "react/destructuring-assignment": 1
+      "react/destructuring-assignment": 1,
+      "arrow-body-style": 1,
+      "no-unused-vars": 1
     },
     "env": {
       "browser": true
