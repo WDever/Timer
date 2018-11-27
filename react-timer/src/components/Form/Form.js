@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './From.scss';
+import styles from './Form.scss';
 
 const Form = () => {
   return (
