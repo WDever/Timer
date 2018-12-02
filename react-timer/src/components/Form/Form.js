@@ -4,7 +4,7 @@ import styles from './Form.scss';
 
 const cx = classNames.bind(styles);
 
-const Form = () => {
+const Form = ({ onClick, onChange, value }) => {
   return (
     <div className={cx('form-wrapper')}>
       <div>
