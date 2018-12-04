@@ -7,24 +7,27 @@ const cx = classNames.bind(styles);
 const Form = ({ onClick, onChange, value }) => {
   return (
     <div className={cx('form-wrapper')}>
-      <div>
+      <div className={cx('inputs-wrapper')}>
         <input
           type="number"
-          placeholder="test"
+          placeholder="00"
           name='hours'
+          className={cx('inputs')}
         />
         <input
           type="number"
-          placeholder="test"
+          placeholder="00"
           name='minuates'
+          className={cx('inputs')}
         />
         <input
           type="number"
-          placeholder="test"
+          placeholder="00"
           name='second'
+          className={cx('inputs')}
         />
       </div>
-      <div className={cx('button')}>버튼</div>
+      <div className={cx('button')}>시작</div>
     </div>
   );
 }

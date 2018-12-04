@@ -5,14 +5,36 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  .inputs-wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 1em;
+    font-size: 40px;
+    border: 1px solid $oc-blue-5;
+  }
   
   .button {
     background: $oc-blue-5;
     color: white;
     border-radius: 0.3rem;
-    width: 2rem;
-    border: solid $oc-blue-5;
+    width: 2.5rem;
+    height: 1.5rem;
     display: flex;
+    flex: 1;
+    align-items: center;
     justify-content: center;
+    cursor: pointer;
+    &:active {
+      background: $oc-blue-7;
+    }
   }
 }
