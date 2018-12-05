@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
+import TimerTemplate from './components/TimerTemplate';
 
 class App extends Component {
   render() {
     return (
-      <Form />
+      <TimerTemplate form={<Form />} />
     );
   }
 }

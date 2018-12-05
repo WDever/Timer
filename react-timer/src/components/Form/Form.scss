@@ -7,15 +7,13 @@
   align-items: center;
 
   .inputs-wrapper {
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
   .inputs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     width: 2em;
     height: 1em;
     font-size: 40px;
@@ -26,12 +24,14 @@
     background: $oc-blue-5;
     color: white;
     border-radius: 0.3rem;
-    width: 2.5rem;
-    height: 1.5rem;
+    width: 3rem;
+    height: 2rem;
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
+    margin: 3.5rem;
+    font-size: 1.3rem;
     cursor: pointer;
     &:active {
       background: $oc-blue-7;

@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './TimerTemplate.scss';
 import classNames from 'classnames/bind';
+import styles from './TimerTemplate.scss';
 
 const cx = classNames.bind(styles);
 
@@ -10,12 +10,12 @@ const TimerTemplate = ({ children, form }) => {
       <div className={cx('title')}>
         타이머
       </div>
-      <div className={cx('form-template')}>
+      <section className={cx('form-template')}>
         {form}
-      </div>
-      <div className={cx('children-template')}>
+      </section>
+      <section className={cx('children-template')}>
         {children}
-      </div>
+      </section>
     </div>
   );
 }

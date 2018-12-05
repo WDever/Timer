@@ -1,0 +1,28 @@
+@import '~open-color/open-color';
+
+.timer-template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 50%;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  .title {
+    color: white;
+    font-size: 3rem;
+    height: 5rem;
+    width: 10rem;
+    background-color: $oc-blue-5;
+    margin: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-template {
+    width: 30rem;
+  }
+}

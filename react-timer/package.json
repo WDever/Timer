@@ -32,7 +32,8 @@
       "react/no-unused-state": 1,
       "react/destructuring-assignment": 1,
       "arrow-body-style": 1,
-      "no-unused-vars": 1
+      "no-unused-vars": 1,
+      "react/prop-types": 1
     },
     "env": {
       "browser": true
