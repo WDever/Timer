@@ -4,7 +4,7 @@ import styles from './Form.scss';
 
 const cx = classNames.bind(styles);
 
-const Form = ({ onClick, onChange, value }) => {
+const Form = ({ onChange, value }) => {
   return (
     <div className={cx('form-wrapper')}>
       <div className={cx('inputs-wrapper')}>
@@ -13,13 +13,13 @@ const Form = ({ onClick, onChange, value }) => {
           placeholder="00"
           name='hours'
           className={cx('inputs')}
-        />
+        /> :
         <input
           type="number"
           placeholder="00"
           name='minuates'
           className={cx('inputs')}
-        />
+        /> :
         <input
           type="number"
           placeholder="00"
@@ -27,7 +27,6 @@ const Form = ({ onClick, onChange, value }) => {
           className={cx('inputs')}
         />
       </div>
-      <div className={cx('button')}>시작</div>
     </div>
   );
 }

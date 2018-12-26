@@ -9,6 +9,7 @@
     "eslint-config-react-app": "^3.0.5",
     "node-sass": "^4.10.0",
     "open-color": "^1.6.3",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
@@ -33,7 +34,10 @@
       "react/destructuring-assignment": 1,
       "arrow-body-style": 1,
       "no-unused-vars": 1,
-      "react/prop-types": 1
+      "react/prop-types": 1,
+      "jsx-a11y/interactive-supports-focus": 1,
+      "jsx-a11y/click-events-have-key-events": 1,
+      "jsx-a11y/no-static-element-interactions": 1
     },
     "env": {
       "browser": true
