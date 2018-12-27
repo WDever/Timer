@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './Form.scss';
 
 const cx = classNames.bind(styles);
 
-const Form = ({ onChange, value, hour, min, sec, contents }) => {
+const Form = ({ onChange, hour, min, sec, contents }) => {
   const readAble = !contents;
   return (
     <div className={cx('form-wrapper')}>
@@ -39,6 +40,22 @@ const Form = ({ onChange, value, hour, min, sec, contents }) => {
       </div>
     </div>
   );
+}
+
+Form.propTypes = {
+  onChange: PropTypes.func,
+  hour: PropTypes.number,
+  min: PropTypes.number,
+  sec: PropTypes.number,
+  contents: PropTypes.bool
+}
+
+Form.defaultProps = {
+  onChange: () => console.warn('no onChange'),
+  hour: 0,
+  min: 0,
+  sec: 0,
+  contents: true
 }
 
 export default Form;

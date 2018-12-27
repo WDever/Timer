@@ -13,23 +13,51 @@ class App extends Component {
   };
 
   handleAction = () => {
-    const { contents } = this.state;
-
-    console.log(this.state.hour);
-    console.log(this.state.min);
-    console.log(this.state.sec);
+    const { contents, hour, min, sec } = this.state;
 
     this.setState({
-      contents: !contents
+      contents: !contents,
+      time: Number((hour * 3600) + (min * 60) + sec)
     });
-  };
+
+    const starter = contents ? this.timerStart() : clearInterval(this.interval);
+  } 
 
   handleChange = (e) => {
     const { value } = e.target;
 
     this.setState({
-      [e.target.name]: value
+      [e.target.name]: Number(value)
     });
+  }
+
+  timerStart = () => {
+    this.interval = setInterval(() => {
+      this.timerAction();
+    }, 1000);
+  }
+
+  timerAction = () => {
+    const { hour, min, sec, time } = this.state;
+
+    console.log(`HHHHH ${time}`);
+
+    this.setState({
+      time: time - 1,
+      hour: Math.floor(time / 3600),
+      min: Math.floor((time - hour * 3600) / 60),
+      sec: time - (hour * 3600) - (min * 60),
+    });
+
+    console.log(`hour ${hour}`);
+    console.log(`min ${min}`);
+    console.log(`sec ${sec}`);
+    console.log(`time ${time}`);
+
+    if (time === 0) {
+      console.log(`clearTime ${time}`);
+      clearInterval(this.interval);
+    }
   }
 
   render() {

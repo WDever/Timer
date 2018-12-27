@@ -5,20 +5,19 @@ import styles from './Button.scss';
 
 const cx = classNames.bind(styles);
 
-const Button = ({ onClick, contents }) => {
-  return (
-    <div className={cx('Button-wrapper')}>
-      <div
-        className={cx('Button')}
-        onClick={onClick}
-      >
-        {
-        contents ? '시작' : '정지'
-      }
-      </div>
+const Button = ({ onClick, contents }) => (
+  <div className={cx('Button-wrapper')}>
+    <div
+      className={cx('Button')}
+      onClick={onClick}
+      onKeyDown="none"
+      role="Button"
+      tabIndex="0"
+    >
+      {contents ? '시작' : '정지'}
     </div>
+  </div>
   );
-}
 
 Button.propTypes = {
   onClick: PropTypes.func,
@@ -27,7 +26,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   onClick: () => console.warn('No handleAction!'),
-  contents: true
+  contents: true,
 };
 
 export default Button;
