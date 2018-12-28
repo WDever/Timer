@@ -21,4 +21,14 @@ const TimerTemplate = ({ children, form }) => {
   );
 }
 
+TimerTemplate.propTypes = {
+  children: PropTypes.element,
+  form: PropTypes.element
+};
+
+TimerTemplate.defaultProps = {
+  children: null,
+  form: null
+};
+
 export default TimerTemplate

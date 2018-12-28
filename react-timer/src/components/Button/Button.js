@@ -11,7 +11,6 @@ const Button = ({ onClick, contents }) => (
       className={cx('Button')}
       onClick={onClick}
       onKeyDown={onClick}
-      onLo
       role="Button"
       tabIndex="0"
     >

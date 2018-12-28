@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   timerAction = () => {
-    const { hour, min, sec, time } = this.state;
+    const { time } = this.state;
 
     // component update
 
@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   statesSetter = () => {
-    const { time, hour, min, sec } = this.state;
+    const { time, hour, min } = this.state;
 
     if (time === 0) {
       this.setState({
@@ -59,10 +59,10 @@ class App extends Component {
       this.setState(() => ({
         hour: Math.floor(time / 3600),
       }), () => {
-        this.setState((prevState, prevProps) => ({
+        this.setState((prevState) => ({
           min: Math.floor((time - prevState.hour * 3600) / 60),  // prevState.hour means just changed hour value. Without this, min will be -1
         }), () => {
-          this.setState((prevState, prevProps) => ({
+          this.setState((prevState) => ({
             sec: time - (prevState.hour * 3600) - (prevState.min * 60),  // prevState means just changed valud. Without this, sec will be -1
           }));
         });
