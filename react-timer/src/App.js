@@ -20,7 +20,7 @@ class App extends Component {
       time: Number((hour * 3600) + (min * 60) + sec)
     });
 
-    const starter = contents ? this.timerStart() : clearInterval(this.interval);
+    const starter = contents ? this.timerStart() : clearInterval(this.interval);  // eslint rule: ? operator should be like this
   } 
 
   handleChange = (e) => {
@@ -40,24 +40,38 @@ class App extends Component {
   timerAction = () => {
     const { hour, min, sec, time } = this.state;
 
-    console.log(`HHHHH ${time}`);
+    // component update
 
-    this.setState({
+    this.setState(() => ({  // setState is asynchronous
       time: time - 1,
-      hour: Math.floor(time / 3600),
-      min: Math.floor((time - hour * 3600) / 60),
-      sec: time - (hour * 3600) - (min * 60),
-    });
+    }), () => this.statesSetter());  // stateSetter will call after setState working is done
+  }
 
-    console.log(`hour ${hour}`);
-    console.log(`min ${min}`);
-    console.log(`sec ${sec}`);
-    console.log(`time ${time}`);
+  statesSetter = () => {
+    const { time, hour, min, sec } = this.state;
 
     if (time === 0) {
-      console.log(`clearTime ${time}`);
+      this.setState({
+        sec: time - (hour * 3600) - (min * 60)  // This makes sec: 0, bcuz when time is 0, sec didnt update. But with this code, it is updated
+      });
       clearInterval(this.interval);
+    } else {
+      this.setState(() => ({
+        hour: Math.floor(time / 3600),
+      }), () => {
+        this.setState((prevState, prevProps) => ({
+          min: Math.floor((time - prevState.hour * 3600) / 60),  // prevState.hour means just changed hour value. Without this, min will be -1
+        }), () => {
+          this.setState((prevState, prevProps) => ({
+            sec: time - (prevState.hour * 3600) - (prevState.min * 60),  // prevState means just changed valud. Without this, sec will be -1
+          }));
+        });
+      });
     }
+  }
+
+  componentDidMount = () => {
+    
   }
 
   render() {
@@ -67,7 +81,8 @@ class App extends Component {
       min,
       sec,
       time
-    } = this.state
+    } = this.state;
+
     const {
       handleAction,
       handleChange

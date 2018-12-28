@@ -10,7 +10,8 @@ const Button = ({ onClick, contents }) => (
     <div
       className={cx('Button')}
       onClick={onClick}
-      onKeyDown="none"
+      onKeyDown={onClick}
+      onLo
       role="Button"
       tabIndex="0"
     >
