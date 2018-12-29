@@ -15,12 +15,14 @@ class App extends Component {
   handleAction = () => {
     const { contents, hour, min, sec } = this.state;
 
-    this.setState({
+    const starter = () => {
+      return contents ? this.timeChecker() : clearInterval(this.interval);  // eslint rule: ? operator should be like this
+    }
+
+    this.setState(() => ({
       contents: !contents,
       time: Number((hour * 3600) + (min * 60) + sec)
-    });
-
-    const starter = contents ? this.timerStart() : clearInterval(this.interval);  // eslint rule: ? operator should be like this
+    }), () => starter());
   } 
 
   handleChange = (e) => {
@@ -29,6 +31,34 @@ class App extends Component {
     this.setState({
       [e.target.name]: Number(value)
     });
+  }
+
+  handleSave = () => {
+    const { time } = this.state;
+
+    localStorage.setItem('time', time);
+
+    console.log(localStorage.getItem('time'));
+  }
+
+  handleClear = () => {
+    console.log('active');
+    console.log(localStorage.getItem('time'))
+    return localStorage.getItem('time') !== null ? this.timeClear() : alert('저장된 시간이 없습니다.');
+  }
+
+  timeClear = () => {
+    localStorage.clear();
+
+    this.setState(() => ({
+      time: 0
+    }), () => this.timesSetter());
+  }
+
+  timeChecker = () => {
+    const { time } = this.state;
+
+    return time !== 0 ? this.timerStart() : alert('시간을 설정해주세요.');
   }
 
   timerStart = () => {
@@ -44,10 +74,10 @@ class App extends Component {
 
     this.setState(() => ({  // setState is asynchronous
       time: time - 1,
-    }), () => this.statesSetter());  // stateSetter will call after setState working is done
+    }), () => this.timerHandler());  // timerHandler will call after setState working is done
   }
 
-  statesSetter = () => {
+  timerHandler = () => {
     const { time, hour, min } = this.state;
 
     if (time === 0) {
@@ -56,6 +86,12 @@ class App extends Component {
       });
       clearInterval(this.interval);
     } else {
+      this.timesSetter();
+    }
+  }
+
+  timesSetter = () => {
+    const {time } = this.state;
       this.setState(() => ({
         hour: Math.floor(time / 3600),
       }), () => {
@@ -67,11 +103,14 @@ class App extends Component {
           }));
         });
       });
-    }
   }
 
   componentDidMount = () => {
-    
+    if (localStorage.getItem('time')) {
+      this.setState(() => ({
+        time: Number(localStorage.getItem('time'))
+      }), () => this.timerHandler());
+    }
   }
 
   render() {
@@ -85,7 +124,9 @@ class App extends Component {
 
     const {
       handleAction,
-      handleChange
+      handleChange,
+      handleSave,
+      handleClear
     } = this;
 
     return (
@@ -102,6 +143,8 @@ class App extends Component {
       >
         <Button
           onClick={handleAction}
+          handleSave={handleSave}
+          handleClear={handleClear}
           contents={contents}
         />
       </TimerTemplate>

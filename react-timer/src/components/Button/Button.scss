@@ -17,6 +17,7 @@
     background: $oc-blue-5;
     color: white;
     border-radius: 0.3rem;
+    margin: 0rem 1rem;
     cursor: pointer;
     outline: none;
     &:hover {
@@ -25,5 +26,30 @@
     &:active {
       background: $oc-blue-7;
     }
+  }
+
+  .clear {
+    height: 75%;
+    width: 4.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $oc-blue-5;
+    color: white;
+    border-radius: 0.3rem;
+    margin: 0rem 1rem;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+      background: $oc-blue-6;
+    }
+    &:active {
+      background: $oc-blue-7;
+    }
+  }
+
+  .visibility {
+    display: none;
   }
 }
