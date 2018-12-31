@@ -2,18 +2,9 @@
 
 .form-wrapper {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between; 
   align-items: center;
-
-  .inputs-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-  }
+  font-size: 2.5rem;
 
   .inputs {
     text-align: center;
@@ -21,23 +12,5 @@
     height: 1em;
     font-size: 2.5rem;
     border: 1px solid $oc-blue-5;
-  }
-  
-  .button {
-    background: $oc-blue-5;
-    color: white;
-    border-radius: 0.3rem;
-    width: 3rem;
-    height: 2rem;
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    margin: 3.5rem;
-    font-size: 1.3rem;
-    cursor: pointer;
-    &:active {
-      background: $oc-blue-7;
-    }
   }
 }

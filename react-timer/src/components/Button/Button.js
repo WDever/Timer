@@ -17,25 +17,25 @@ const Button = ({ onClick, handleClear, handleSave, contents }) => (
       {contents ? '시작' : '정지'}
     </div>
     <div
-      className={cx('clear', {visibility: !contents})}
+      className={cx('clear', 'Button', { visibility: !contents })}
       onClick={handleClear}
       onKeyPress={null}
       role="Button"
       tabIndex="0"
     >
-    초기화
+      초기화
     </div>
     <div
-      className={cx('Button', {visibility: contents})}
+      className={cx('Button', { visibility: contents })}
       onClick={handleSave}
       onKeyDown={null}
       role="Button"
       tabIndex="0"
     >
-     저장
+      저장
     </div>
   </div>
-  );
+);
 
 Button.propTypes = {
   onClick: PropTypes.func,
