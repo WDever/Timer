@@ -9,22 +9,25 @@ class App extends Component {
     hour: 0,
     min: 0,
     sec: 0,
-    time: 0,
   };
+
+  time = 0;
 
   handleAction = () => {
     const { contents, hour, min, sec } = this.state;
 
-    const starter = () =>
-      contents ? this.timeChecker() : clearInterval(this.interval); // eslint rule: ? operator should be like this
+    // const starter = () =>
+    //   contents ? this.timeChecker() : clearInterval(this.interval); // eslint rule: ? operator should be like this
+
+    this.time = Number(hour * 3600 + min * 60 + sec);
 
     this.setState(
       () => ({
         contents: !contents,
-        time: Number(hour * 3600 + min * 60 + sec),
-      }),
-      () => starter(),
+      })
     );
+
+    return contents ? this.timeChecker() : clearInterval(this.interval);
   };
 
   handleChange = e => {
@@ -36,16 +39,10 @@ class App extends Component {
   };
 
   handleSave = () => {
-    const { time } = this.state;
-
-    localStorage.setItem('time', time);
-
-    console.log(localStorage.getItem('time'));
+    localStorage.setItem('time', this.time);
   };
 
   handleClear = () => {
-    console.log('active');
-    console.log(localStorage.getItem('time'));
     return localStorage.getItem('time') !== null
       ? this.timeClear()
       : alert('저장된 시간이 없습니다.');
@@ -54,46 +51,24 @@ class App extends Component {
   timeClear = () => {
     localStorage.clear();
 
-    this.setState(
-      () => ({
-        time: 0,
-      }),
-      () => this.timesSetter(),
-    );
+    this.time = 0;
+
+    this.timesSetter();
   };
 
   timeChecker = () => {
-    const { time } = this.state;
-
-    return time !== 0 ? this.timerStart() : alert('시간을 설정해주세요.');
-  };
-
-  timerStart = () => {
-    this.interval = setInterval(() => {
-      this.timerAction();
-    }, 1000);
-  };
-
-  timerAction = () => {
-    const { time } = this.state;
-
-    // component update
-
-    this.setState(
-      () => ({
-        // setState is asynchronous
-        time: time - 1,
-      }),
-      () => this.timerHandler(),
-    ); // timerHandler will call after setState working is done
-  };
+    this.interval = setInterval(() => this.timerHandler(), 1000);
+    return this.time !== 0 ? this.interval : alert('시간을 설정해주세요.');
+  }
 
   timerHandler = () => {
-    const { time, hour, min } = this.state;
+    const { hour, min } = this.state;
 
-    if (time === 0) {
+    this.time -= 1;
+
+    if (this.time === 0) {
       this.setState({
-        sec: time - hour * 3600 - min * 60, // This makes sec: 0, bcuz when time is 0, sec didnt update. But with this code, it is updated
+        sec: this.time - hour * 3600 - min * 60, // This makes sec: 0, bcuz when time is 0, sec didnt update. But with this code, it is updated
       });
       clearInterval(this.interval);
     } else {
@@ -102,19 +77,18 @@ class App extends Component {
   };
 
   timesSetter = () => {
-    const { time } = this.state;
     this.setState(
       () => ({
-        hour: Math.floor(time / 3600),
+        hour: Math.floor(this.time / 3600),
       }),
       () => {
         this.setState(
           prevState => ({
-            min: Math.floor((time - prevState.hour * 3600) / 60), // prevState.hour means just changed hour value. Without this, min will be -1
+            min: Math.floor((this.time - prevState.hour * 3600) / 60), // prevState.hour means just changed hour value. Without this, min will be -1
           }),
           () => {
             this.setState(prevState => ({
-              sec: time - prevState.hour * 3600 - prevState.min * 60, // prevState means just changed valud. Without this, sec will be -1
+              sec: this.time - prevState.hour * 3600 - prevState.min * 60, // prevState means just changed valud. Without this, sec will be -1
             }));
           },
         );
@@ -124,12 +98,8 @@ class App extends Component {
 
   componentDidMount = () => {
     if (localStorage.getItem('time')) {
-      this.setState(
-        () => ({
-          time: Number(localStorage.getItem('time')),
-        }),
-        () => this.timerHandler(),
-      );
+      this.time = Number(localStorage.getItem('time'));
+      this.timerHandler();
     }
   };
 
