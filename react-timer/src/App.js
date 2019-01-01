@@ -16,16 +16,11 @@ class App extends Component {
   handleAction = () => {
     const { contents, hour, min, sec } = this.state;
 
-    // const starter = () =>
-    //   contents ? this.timeChecker() : clearInterval(this.interval); // eslint rule: ? operator should be like this
-
     this.time = Number(hour * 3600 + min * 60 + sec);
 
-    this.setState(
-      () => ({
-        contents: !contents,
-      })
-    );
+    this.setState(() => ({
+      contents: !contents,
+    }));
 
     return contents ? this.timeChecker() : clearInterval(this.interval);
   };
@@ -42,11 +37,9 @@ class App extends Component {
     localStorage.setItem('time', this.time);
   };
 
-  handleClear = () => {
-    return localStorage.getItem('time') !== null
+  handleClear = () => localStorage.getItem('time') !== null
       ? this.timeClear()
       : alert('저장된 시간이 없습니다.');
-  };
 
   timeClear = () => {
     localStorage.clear();
@@ -59,7 +52,7 @@ class App extends Component {
   timeChecker = () => {
     this.interval = setInterval(() => this.timerHandler(), 1000);
     return this.time !== 0 ? this.interval : alert('시간을 설정해주세요.');
-  }
+  };
 
   timerHandler = () => {
     const { hour, min } = this.state;
