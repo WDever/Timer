@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="Chrome" />
+    <title>Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      div {
+        width: 100vw;
+      }
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="Chrome">
-  <title>Timer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../CSS/index.css" />
-</head>
+      table {
+        width: 100%;
+      }
 
-<body>
-  <div id="SettingForm">
-    <div id="timeSet">
-      <div id="SetForm">
-        <div id="setForm_in">
-          <input type="number" placeholder="0" id="hour" class="times" value="0" /> :
-          <input type="number" placeholder="0" id="min" class="times" value="0" /> :
-          <input type="number" placeholder="0" id="sec" class="times" value="0" />
-        </div>
-      </div>
-      <div id="timer">
-        0 : 0 : 0
-      </div>
-      <div id="infoDiv">
-        <div class="info">
-          hours
-        </div>
-        <div class="info">
-          minutes
-        </div>
-        <div class="info">
-          seconds
-        </div>
-      </div>
-    <div id="FormBtn">
-      <button type="submit" id="SetFormBtn" class="btns">
-        Start
-      </button>
-      <button id="clear" class="btns">
-        clear
-      </button>
-      <div id="secondBtn">
-        <button type="submit" id="Save" class="btns">
-          Pause
-        </button>
-        <button type="submit" id="rePlay" class="btns">
-          Replay
-        </button>
-      </div>
+      td {
+        background: #ffffff;
+        padding: 20px;
+        text-align: left;
+        vertical-align: middle;
+        font-weight: 300;
+        font-size: 18px;
+        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+        border-right: 1px solid #c1c3d1;
+        border-bottom: 1px solid #c1c3d1;
+      }
+
+      th {
+        background: lightblue;
+        padding: 20px;
+        text-align: left;
+        vertical-align: middle;
+        font-weight: 300;
+        font-size: 18px;
+        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+        border-right: 1px solid #c1c3d1;
+        border-bottom: 1px solid #c1c3d1;
+      }
+
+      #id {
+        width: 2rem;
+      }
+
+      #name {
+        width: 6rem;
+      }
+
+      #job,
+      #addr,
+      #edu,
+      #careear {
+        width: 10rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div">
+      <table id="table">
+        <thead>
+          <tr>
+            <th id="id">
+              번호
+            </th>
+            <th id="name">
+              이름
+            </th>
+            <th id="job">
+              직종
+            </th>
+            <th id="addr">
+              주소
+            </th>
+            <th id="edu">
+              필요 학력
+            </th>
+            <th id="careear">
+              필요 경력
+            </th>
+          </tr>
+        </thead>
+      </table>
     </div>
-    </div>
-  </div>
-  <footer>
-    <div class="license">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-  </footer>
-  <script src="../JS/Timer.js"></script>
-</body>
-
+    <script src="../index.js"></script>
+  </body>
 </html>
