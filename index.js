@@ -33915,12 +33915,6 @@ const tableCreator = () => {
   ];
 
   test.map((item, i) => {
-    console.log(item.id);
-    console.log(item.confirm_name);
-    console.log(item.work);
-    console.log(item.address);
-    console.log(item.education);
-    console.log(item.careear);
     const Tr = document.createElement("Tr");
     const id = document.createElement("td");
     const name = document.createElement("td");
@@ -33942,7 +33936,6 @@ const tableCreator = () => {
     Tr.appendChild(address);
     Tr.appendChild(education);
     Tr.appendChild(careear);
-    console.log(id);
 
     document.getElementById("table").appendChild(Tr);
   });
